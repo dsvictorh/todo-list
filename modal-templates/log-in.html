@@ -1,0 +1,12 @@
+<form ng-controller="LoginController" ng-submit="logIn()">
+	<h2>Log In</h2>
+	<input type="text" ng-model="username" placeholder="Username" />
+	<input type="password" ng-model="password" placeholder="Password" />
+	<div class="text-right">
+		<button>Submit</button>
+		<button type="button" class="red" ng-click="closeModal()">Cancel</button>
+	</div>
+	<ul ng-if="errors" class="errors">
+		<li ng-repeat="error in errors">{{error}}</li>
+	</ul>
+</form>
