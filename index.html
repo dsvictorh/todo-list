@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Todo App - Victor Herrera</title>
 		<link rel="stylesheet" href="/assets/css/site.css" />
-		<link rel="icon" href="/img/favicon.ico" />
+		<link rel="icon" href="/assets/img/favicon.ico" />
 	</head>
 	<body ng-app="app">
 		<header class="shadow">
@@ -20,14 +20,14 @@
 			<button ng-click="addItem()" ng-class="{'disabled': newTodo}">New</button>
 			<ul class="todos">
 				<li class="shadow" ng-if="newTodo">
-					<input type="text" ng-model="newTodo.text" />
+					<input type="text" ng-keyup="onKeyup($event, null, newTodo.text)" ng-model="newTodo.text" />
 					<i ng-click="cancelItem()" class="cancel"></i>
 					<i ng-click="saveItem(null, newTodo.text)" ng-class="{'disabled': !newTodo.text}" class="save"></i>
 				</li>
 				<li class="shadow" ng-repeat="todo in user.todos track by $index">
 					<p ng-if="!todo.editting" title={{todo.text}}>{{todo.text}}</p>
-					<input ng-if="todo.editting" type="text" ng-model="todo.editValue" />
-					<i ng-if="!todo.editting" ng-click="editItem($index)" class="edit"></i>
+					<input ng-if="todo.editting" ng-keyup="onKeyup($event, $index, todo.editValue)" type="text" ng-model="todo.editValue" />
+					<i ng-if="!todo.editting" ng-click="editItem($index, $event.target)" class="edit"></i>
 					<i ng-if="!todo.editting" ng-click="completeItem($index)" class="complete"></i>
 					<i ng-if="todo.editting" ng-click="cancelItem($index)" class="cancel"></i>
 					<i ng-if="todo.editting" ng-click="saveItem($index, todo.editValue)" ng-class="{'disabled': !todo.editValue}" class="save"></i>

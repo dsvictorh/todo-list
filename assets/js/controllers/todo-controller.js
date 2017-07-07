@@ -5,9 +5,26 @@ app.controller('TodoController', ['$scope', '$rootScope', 'TodoService', functio
 		}
 	}
 
-	$scope.editItem = function(index){
+	$scope.editItem = function(index, element){
+		var parent = element.parentNode;
 		$rootScope.user.todos[index].editting = true;
 		$rootScope.user.todos[index].editValue = $rootScope.user.todos[index].text;
+		setTimeout(function(){
+			parent.querySelector('input').focus();
+		}, 100);
+		
+	}
+
+	$scope.onKeyup = function(event, index, text){
+		switch(event.which){
+			case 13: 
+				$scope.saveItem(index, text);
+				break;
+			case 27:
+				$scope.cancelItem(index);
+				break;
+
+		}
 	}
 
 	$scope.saveItem = function(index, text){
