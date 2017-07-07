@@ -4,15 +4,15 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Todo App - Victor Herrera</title>
-		<link rel="stylesheet" href="/assets/css/site.css" />
-		<link rel="icon" href="/assets/img/favicon.ico" />
+		<link rel="stylesheet" href="assets/css/site.css" />
+		<link rel="icon" href="assets/img/favicon.ico" />
 	</head>
 	<body ng-app="app">
 		<header class="shadow">
 			<h1>My ToDos <span ng-if="!user.offlineMode"> - {{user.name}}</span></h1>
 			<div>
-				<a href="javascript:void(0)" ng-if="user.offlineMode" class="button" ng-click="openModal('/modal-templates/log-in.html', 500)">Log In</a>
-				<a href="javascript:void(0)" ng-if="user.offlineMode" class="button" ng-click="openModal('/modal-templates/sign-up.html', 500)">Sign Up</a>
+				<a href="javascript:void(0)" ng-if="user.offlineMode" class="button" ng-click="openModal('modal-templates/log-in.html', 500)">Log In</a>
+				<a href="javascript:void(0)" ng-if="user.offlineMode" class="button" ng-click="openModal('modal-templates/sign-up.html', 500)">Sign Up</a>
 				<a href="javascript:void(0)" ng-if="!user.offlineMode" class="button" ng-click="logout()">Logout</a>
 			</div>
 		</header>
@@ -37,13 +37,13 @@
 		<div class="modal" ng-click="closeModal()" ng-class="{'active': modalTemplate}">
 			<div class="modal-body shadow" ng-click="$event.stopPropagation()" ng-attr-style="{{modalSize ? 'width: ' + modalSize : null}}" ng-include="modalTemplate"></div>
 		</div>
-		<script type="text/javascript" src="/assets/lib/angular.js"></script>
-		<script type="text/javascript" src="/assets/lib/angular-storage.js"></script>
-		<script type="text/javascript" src="/assets/js/app.js"></script>
-		<script type="text/javascript" src="/assets/js/services/user-service.js"></script>
-		<script type="text/javascript" src="/assets/js/services/todo-service.js"></script>
-		<script type="text/javascript" src="/assets/js/controllers/todo-controller.js"></script>
-		<script type="text/javascript" src="/assets/js/controllers/signup-controller.js"></script>
-		<script type="text/javascript" src="/assets/js/controllers/login-controller.js"></script>
+		<script type="text/javascript" src="assets/lib/angular.js"></script>
+		<script type="text/javascript" src="assets/lib/angular-storage.js"></script>
+		<script type="text/javascript" src="assets/js/app.js"></script>
+		<script type="text/javascript" src="assets/js/services/user-service.js"></script>
+		<script type="text/javascript" src="assets/js/services/todo-service.js"></script>
+		<script type="text/javascript" src="assets/js/controllers/todo-controller.js"></script>
+		<script type="text/javascript" src="assets/js/controllers/signup-controller.js"></script>
+		<script type="text/javascript" src="assets/js/controllers/login-controller.js"></script>
 	</body>
 </html>
